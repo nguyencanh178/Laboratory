@@ -21,7 +21,9 @@
 
 **4. Vẽ mạch Altium**
 
-- Vẽ schematic cho 74hc595, ic 7805, atmega 328P, arduino nano, esp32, 
+- Vẽ và thêm 3D cho các linh kiện cắm và dán.
+
+- Vẽ schematic cho 74hc595, ic 7805, atmega 328P, arduino nano, esp32.
 
 - Vẽ sơ đồ nguyên lý fan73912, mạch nguồn, LED NEON
 
