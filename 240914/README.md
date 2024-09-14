@@ -31,6 +31,10 @@
 
 - Đã học phủ đồng cho PCB và chưa từng làm mạch 
 
+**Một số demo sản phẩm**
+
+[DEMO](https://www.youtube.com/playlist?list=PLZ6qnn8w1FLRmbUdg_GS0-I8ogjWWSJ83)
+
 # B. DỰ ĐỊNH SẮP TỚI
 
 - Hiển thị giờ phút giây sử dụng module led 7 đoạn lập trình trên stm32.
