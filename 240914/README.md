@@ -36,6 +36,10 @@
 
 ![alt](Anh2.png)
 
+![alt](Anh4.png)
+
+![alt](Anh7.png)
+
 **SCH Fan74912**
 
 ![alt](Anh3.png)
