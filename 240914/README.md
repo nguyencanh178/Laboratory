@@ -26,7 +26,7 @@
 
 - MQTT Broker hay máy chủ mô giới được coi như trung tâm, nó là điểm giao của tất cả các kết nối đến từ Client (Publisher/Subscriber).
 
-- Code và Demo: [CODE](https://github.com/eleptit-club/ELE-D22-NguyenDucCanh/tree/main/ESP/071324)
+- Code: [CODE](https://github.com/nguyencanh178/Laboratory/tree/main/code)
 
 - Tham khảo: [Tham khảo](https://www.emqx.com/en/blog/esp32-connects-to-the-free-public-mqtt-broker)
 
