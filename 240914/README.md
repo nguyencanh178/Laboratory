@@ -42,5 +42,10 @@
 
 ![alt](Anh6.png)
 
+# B. CÔNG VIỆC TIẾP THEO
+
+- Em xin thầy cho em hướng nghiên cứu tiếp theo
+
+
 
 
