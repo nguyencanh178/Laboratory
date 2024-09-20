@@ -38,3 +38,10 @@
 # B. DỰ ĐỊNH SẮP TỚI
 
 - Hiển thị giờ phút giây sử dụng module led 7 đoạn lập trình trên stm32.
+
+# C. KHÓ KHĂN 
+
+- Chưa nhảy số từ lần lượt
+
+![alt](demo.mp4)
+
