@@ -26,7 +26,7 @@
 
 **SCH mạch LED NEON**
 
-![alt](Anh1.png)
+![alt](anh1.png)
 
 **PCB**
 
