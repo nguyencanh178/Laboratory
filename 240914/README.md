@@ -18,6 +18,10 @@
 
 **ESP32 GIAO THỨC MQTT HIỂN THỊ NHIỆT ĐỘ, ĐỘ ẨM VÀ BẬT TẮT LED**
 
+![alt](Anh5.png)
+
+![alt](Anh6.png)
+
 - Cài đặt MQTT Broker trên máy tính hoặc sử dụng dịch vụ MQTT public như CloudMQTT.
 
 - MQTT Broker hay máy chủ mô giới được coi như trung tâm, nó là điểm giao của tất cả các kết nối đến từ Client (Publisher/Subscriber).
