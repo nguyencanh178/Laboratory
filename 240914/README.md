@@ -18,6 +18,10 @@
 
 **ESP32 GIAO THỨC MQTT HIỂN THỊ NHIỆT ĐỘ, ĐỘ ẨM VÀ BẬT TẮT LED**
 
+- Cài đặt MQTT Broker trên máy tính hoặc sử dụng dịch vụ MQTT public như CloudMQTT.
+
+- MQTT Broker hay máy chủ mô giới được coi như trung tâm, nó là điểm giao của tất cả các kết nối đến từ Client (Publisher/Subscriber).
+
 - Code và Demo: [CODE](https://github.com/eleptit-club/ELE-D22-NguyenDucCanh/tree/main/ESP/071324)
 
 - Tham khảo: [Tham khảo](https://www.emqx.com/en/blog/esp32-connects-to-the-free-public-mqtt-broker)
@@ -36,11 +40,9 @@
 
 ![alt](Anh3.png)
 
-**PCB Một số mạch đã vẽ**
+# 4. ĐIỂM MẠNH
 
-![alt](Anh5.png)
-
-![alt](Anh6.png)
+- Em nắm tốt các kiến thức về lý thuyết mạch, điện tử số, điện tử tương tự.
 
 # B. CÔNG VIỆC TIẾP THEO
 
