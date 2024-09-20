@@ -43,5 +43,5 @@
 
 - Chưa nhảy số từ lần lượt
 
-![alt](demo.mp4)
+![alt](demo.png)
 
