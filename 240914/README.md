@@ -1,47 +1,46 @@
 # ELE-D22-NguyenDucCanh - BÁO CÁO NGÀY 14/09/2024
 
-# A. CÔNG VIỆC ĐÃ LÀM
+# A. TỔNG QUAN VỀ PROJECT ĐÃ LÀM
 
-**1. Lập trình Arduino**
+# 1. Ngôn ngữ lập trình đã học
 
-- Hiệu ứng LED, nút bấm bật tắt LED
+- C/C++
 
-- Hiển thị LED 7 đoạn đơn, 7 đoạn đồng hồ - HC595
+# 2. Vi điều khiển
 
-- Hiển thị LCD 1602 cắm biến trở xoay chưa sử dụng i2c
+- Arduino 
 
-**2. Lập trình ESP32**
+- ESP32
 
-- Sử dụng giao thức MQTT gửi tín hiệu nhiệt độ, độ ẩm và điều khiển bật tắt led từ xa
+- STM32 (đang học): nút bấm, led 7 đoạn
+
+### PROJECT
+
+**ESP32 GIAO THỨC MQTT HIỂN THỊ NHIỆT ĐỘ, ĐỘ ẨM VÀ BẬT TẮT LED**
+
+- Code và Demo: [CODE](https://github.com/eleptit-club/ELE-D22-NguyenDucCanh/tree/main/ESP/071324)
+
+- Tham khảo: [Tham khảo](https://www.emqx.com/en/blog/esp32-connects-to-the-free-public-mqtt-broker)
+
+# 3. Altium
+
+**SCH mạch LED NEON**
+
+![alt](Anh1.png)
+
+**PCB**
+
+![alt](Anh2.png)
+
+**SCH Fan74912**
+
+![alt](Anh3.png)
+
+**PCB Một số mạch đã vẽ**
+
+![alt](Anh5.png)
+
+![alt](Anh6.png)
 
 
-**3. Lập trình STM32F103C8T6**
-
-- Blink LED đơn, led mảng, nút bấm chuyển 1 trạng thái
-
-**4. Vẽ mạch Altium**
-
-- Vẽ và thêm 3D cho các linh kiện cắm và dán.
-
-- Vẽ schematic cho 74hc595, ic 7805, atmega 328P, arduino nano, esp32.
-
-- Vẽ sơ đồ nguyên lý fan73912, mạch nguồn, LED NEON
-
-- Layout mạch fan73912, mạch nguồn, LED NEON
-
-- Đã học phủ đồng cho PCB và chưa từng làm mạch 
-
-**Một số demo sản phẩm**
-
-[DEMO](https://www.youtube.com/playlist?list=PLZ6qnn8w1FLRmbUdg_GS0-I8ogjWWSJ83)
-
-# B. DỰ ĐỊNH SẮP TỚI
-
-- Hiển thị giờ phút giây sử dụng module led 7 đoạn lập trình trên stm32.
-
-# C. KHÓ KHĂN 
-
-- Chưa nhảy số từ lần lượt
-
-![alt](demo.png)
 
