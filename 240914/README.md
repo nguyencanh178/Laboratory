@@ -22,6 +22,10 @@
 
 ![alt](Anh6.png)
 
+![alt](Anh8.png)
+
+![alt](Anh9.png)
+
 - Cài đặt MQTT Broker trên máy tính hoặc sử dụng dịch vụ MQTT public như CloudMQTT.
 
 - MQTT Broker hay máy chủ mô giới được coi như trung tâm, nó là điểm giao của tất cả các kết nối đến từ Client (Publisher/Subscriber).
