@@ -1,0 +1,141 @@
+#include "stm32f10x.h"  // Device header
+#include "stm32f10x_gpio.h"             // Keil::Device:StdPeriph Drivers:GPIO
+
+// Define shift register control pins
+#define latch GPIO_Pin_4 // GPIOB Pin 4
+#define clk   GPIO_Pin_6 // GPIOB Pin 6
+#define data  GPIO_Pin_5 // GPIOB Pin 5
+
+#define MSBFIRST 0 
+
+int led[] = {GPIO_Pin_0, GPIO_Pin_1, GPIO_Pin_2, GPIO_Pin_3};
+
+int val[] = {
+    0x3F, // 0 (0b0011 1111)
+    0x06, // 1 (0b0000 0110)
+    0x5B, // 2 (0b0101 1011)
+    0x4F, // 3 (0b0100 1111)
+    0x66, // 4 (0b0110 0110)
+    0x6D, // 5 (0b0110 1101)
+    0x7D, // 6 (0b0111 1101)
+    0x07, // 7 (0b0000 0111)
+    0x7F, // 8 (0b0111 1111)
+    0x6F  // 9 (0b0110 1111)
+};
+void Clear (void);
+unsigned long previousMillis = 0;
+const long interval = 1; 
+int seconds = 0, minutes = 0, hours = 0;
+void customShiftOut(uint16_t dataPin, uint16_t clockPin, uint8_t bitOrder, uint8_t value, int num_led);
+void led_prt(int num, int num_led);
+void delay_ms(int delay);
+void SysTick_Handler(void);
+unsigned long millis(void);
+void Delay_ms();
+
+void Clear(void) {
+    GPIO_ResetBits(GPIOB, latch);       
+    customShiftOut(data, clk, MSBFIRST, 0x00, 0);
+    GPIO_SetBits(GPIOB, latch);         
+}
+
+volatile unsigned long msTicks = 0; 
+
+void SysTick_Handler(void) {
+    msTicks++;
+}
+
+unsigned long millis(void) {
+    return msTicks;
+}
+
+void gpio_init() {
+    GPIO_InitTypeDef GPIO_InitStruct;
+    
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);  
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);  
+
+    GPIO_InitStruct.GPIO_Pin = latch | data | clk;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    GPIO_InitStruct.GPIO_Pin = led[0] | led[1]| led[2] | led[3];
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStruct);
+}
+
+int main(void) {
+    gpio_init(); 
+
+    while (1) {
+        unsigned long currentMillis = millis(); 
+        if (currentMillis - previousMillis >= interval) {
+            previousMillis = currentMillis; 
+            seconds++;
+            if (seconds == 60) {
+                seconds = 0;
+                minutes++;
+            }
+            if (minutes == 60) {
+                minutes = 0;
+                hours++;
+            }
+            if (hours == 24) {
+                hours = 0;
+            }
+        }
+        led_prt(hours / 10, 0);  
+        led_prt(hours % 10, 1); 
+        led_prt(minutes / 10, 2);  
+        led_prt(minutes % 10, 3); 
+    }
+}
+
+
+void delay_ms(int delay) {
+    int i;
+    for (i = 0; i < delay * 8000; i++) {
+        __NOP();
+    }
+}
+
+void customShiftOut(uint16_t dataPin, uint16_t clockPin, uint8_t bitOrder, uint8_t value, int num_led) {
+		int i;
+    for (i = 0; i < 8; i++) {
+        uint8_t bitToSend;
+
+        if (bitOrder == MSBFIRST) {
+            bitToSend = (value & (1 << (7 - i))) ? 1 : 0;
+        } else {
+            bitToSend = (value & (1 << i)) ? 1 : 0;
+        }
+
+        if (bitToSend) {
+            GPIO_SetBits(GPIOB, dataPin);
+        } else {
+            GPIO_ResetBits(GPIOB, dataPin);
+        }
+
+        GPIO_SetBits(GPIOB, clockPin);  // Set clock pin high
+        delay_ms(1);
+        GPIO_ResetBits(GPIOB, clockPin);  // Set clock pin low
+    }
+}
+
+void led_prt(int num, int num_led) {
+		int i;
+    Clear();  // Clear the display
+    for (i = 0; i < 4; i++) {
+        if (i == num_led) {
+            GPIO_SetBits(GPIOA, led[i]);  // Turn on the correct LED
+        } else {
+            GPIO_ResetBits(GPIOA, led[i]);  // Turn off other LEDs
+        }
+    }
+
+    GPIO_ResetBits(GPIOB, latch);
+    customShiftOut(data, clk, MSBFIRST, val[num], num_led);  // Send number data
+    GPIO_SetBits(GPIOB, latch);
+}
